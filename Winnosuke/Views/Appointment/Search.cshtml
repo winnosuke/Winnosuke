@@ -1,0 +1,54 @@
+﻿@model List<Winnosuke.Models.Appointment>
+@{
+    var filter = ViewBag.Filter as Winnosuke.ViewModels.AppointmentSearchViewModel;
+    ViewData["Title"] = "Tìm kiếm lịch hẹn";
+}
+
+<h2>Tìm kiếm lịch hẹn</h2>
+
+<form method="get" asp-action="Search" class="row g-3 mb-4">
+    <div class="col-md-3">
+        <input type="text" name="CustomerName" class="form-control" placeholder="Tên khách hàng" value="@filter?.CustomerName" />
+    </div>
+    <div class="col-md-3">
+        <input type="text" name="LicensePlate" class="form-control" placeholder="Biển số xe" value="@filter?.LicensePlate" />
+    </div>
+    <div class="col-md-2">
+        <input type="text" name="Status" class="form-control" placeholder="Trạng thái" value="@filter?.Status" />
+    </div>
+    <div class="col-md-2">
+        <input type="date" name="FromDate" class="form-control" value="@(filter?.FromDate?.ToString("yyyy-MM-dd"))" />
+    </div>
+    <div class="col-md-2">
+        <input type="date" name="ToDate" class="form-control" value="@(filter?.ToDate?.ToString("yyyy-MM-dd"))" />
+    </div>
+    <div class="col-md-12 mt-2">
+        <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+    </div>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Khách</th>
+            <th>Xe</th>
+            <th>Garage</th>
+            <th>Dịch vụ</th>
+            <th>Thời gian</th>
+            <th>Trạng thái</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var a in Model)
+        {
+            <tr>
+                <td>@a.User?.FullName</td>
+                <td>@a.Vehicle?.LicensePlate</td>
+                <td>@a.Garage?.Name</td>
+                <td>@a.Service?.ServiceName</td>
+                <td>@a.AppointmentTime.("dd/MM/yyyy HH:mm")</td>
+                <td>@a.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>

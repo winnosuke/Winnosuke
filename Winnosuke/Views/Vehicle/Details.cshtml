@@ -1,0 +1,17 @@
+﻿@model Winnosuke.Models.Vehicle
+@{
+    ViewData["Title"] = "Chi tiết phương tiện";
+}
+
+<h2>Chi tiết phương tiện</h2>
+
+<table class="table">
+    <tr><th>Hãng</th><td>@Model.Make</td></tr>
+    <tr><th>Loại</th><td>@Model.Model</td></tr>
+    <tr><th>Biển số</th><td>@Model.LicensePlate</td></tr>
+    <tr><th>Năm</th><td>@Model.Year</td></tr>
+    <tr><th>Ghi chú</th><td>@Model.Notes</td></tr>
+</table>
+
+<a asp-action="Edit" asp-route-id="@Model.VehicleId" class="btn btn-primary">Sửa</a>
+<a asp-action="Index" class="btn btn-secondary">Quay lại</a>

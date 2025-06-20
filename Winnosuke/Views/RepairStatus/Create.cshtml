@@ -1,0 +1,18 @@
+﻿@model Winnosuke.Models.RepairStatus
+<h2>Thêm trạng thái sửa chữa</h2>
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="AppointmentId"></label>
+        <input asp-for="AppointmentId" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="StatusStep"></label>
+        <input asp-for="StatusStep" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Notes"></label>
+        <textarea asp-for="Notes" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Tạo mới</button>
+</form>
+<a asp-action="Index">Quay lại</a>

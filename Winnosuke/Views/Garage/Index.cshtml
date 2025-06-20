@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Winnosuke.Models.Garage>
+<h2>Danh sách Garage</h2>
+<a asp-action="Create" class="btn btn-primary mb-2">Thêm Garage</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên Garage</th>
+            <th>Khu vực</th>
+            <th>Địa chỉ</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var garage in Model)
+        {
+            <tr>
+                <td>@garage.Name</td>
+                <td>@garage.OperatingArea</td>
+                <td>@garage.Address</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@garage.GarageId">Chi tiết</a> |
+                    <a asp-action="Edit" asp-route-id="@garage.GarageId">Sửa</a> |
+                    <a asp-action="Delete" asp-route-id="@garage.GarageId">Xoá</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

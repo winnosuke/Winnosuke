@@ -1,0 +1,30 @@
+﻿@model List<Winnosuke.Models.Review>
+@{
+    ViewData["Title"] = "Tất cả đánh giá";
+}
+
+<h2>Danh sách đánh giá từ người dùng</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Người dùng</th>
+            <th>Garage</th>
+            <th>Sao</th>
+            <th>Bình luận</th>
+            <th>Ngày</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.User?.FullName</td>
+                <td>@item.Garage?.Name</td>
+                <td>@item.Rating</td>
+                <td>@item.Comment</td>
+                <td>@item.CreatedAt.("dd/MM/yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>

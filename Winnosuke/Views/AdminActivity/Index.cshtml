@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Winnosuke.Models.AdminActivity>
+<h2>Nhật ký hoạt động của Admin</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Thời gian</th>
+            <th>Hành động</th>
+            <th>Mô tả</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var activity in Model)
+        {
+            <tr>
+                <td>@activity.CreatedAt.("dd/MM/yyyy HH:mm")</td>
+                <td>@activity.ActionType</td>
+                <td>@activity.Description</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@activity.ActivityId">Chi tiết</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

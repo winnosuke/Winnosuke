@@ -1,0 +1,23 @@
+﻿@model List<Winnosuke.ViewModels.MaintenanceSuggestionViewModel>
+
+<h2>🔧 Gợi ý bảo dưỡng từ hệ thống</h2>
+
+@foreach (var vehicle in Model)
+{
+    <div class="card mb-3 p-3 border-info">
+        <h4>@vehicle.VehicleName (@vehicle.LicensePlate)</h4>
+        @if (vehicle.Suggestions.Count == 0)
+        {
+            <p class="text-success">✅ Xe của bạn đang trong tình trạng tốt!</p>
+        }
+        else
+        {
+            <ul>
+                @foreach (var suggestion in vehicle.Suggestions)
+                {
+                    <li>@suggestion</li>
+                }
+            </ul>
+        }
+    </div>
+}

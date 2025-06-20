@@ -1,0 +1,39 @@
+﻿@model Winnosuke.ViewModels.RevenueViewModel
+@{
+    ViewData["Title"] = "Phân tích doanh thu";
+}
+
+<h2>💰 Phân tích doanh thu</h2>
+
+<h4>📅 Doanh thu theo tháng</h4>
+<table class="table table-bordered">
+    <thead><tr><th>Tháng</th><th>Tổng</th></tr></thead>
+    <tbody>
+        @foreach (var item in Model.MonthlyRevenue)
+        {
+            <tr><td>@item.Month</td><td>@item.Total.ToString("N0") ₫</td></tr>
+        }
+    </tbody>
+</table>
+
+<h4>🏢 Doanh thu theo Garage</h4>
+<table class="table table-bordered">
+    <thead><tr><th>Garage</th><th>Tổng</th></tr></thead>
+    <tbody>
+        @foreach (var item in Model.GarageRevenue)
+        {
+            <tr><td>@item.GarageName</td><td>@item.Total.ToString("N0") ₫</td></tr>
+        }
+    </tbody>
+</table>
+
+<h4>🔧 Doanh thu theo Dịch vụ</h4>
+<table class="table table-bordered">
+    <thead><tr><th>Dịch vụ</th><th>Tổng</th></tr></thead>
+    <tbody>
+        @foreach (var item in Model.ServiceRevenue)
+        {
+            <tr><td>@item.ServiceName</td><td>@item.Total.ToString("N0") ₫</td></tr>
+        }
+    </tbody>
+</table>

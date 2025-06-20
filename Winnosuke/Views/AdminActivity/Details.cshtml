@@ -1,0 +1,11 @@
+﻿@model Winnosuke.Models.AdminActivity
+<h2>Chi tiết hoạt động</h2>
+<dl class="row">
+    <dt class="col-sm-2">Thời gian</dt>
+    <dd class="col-sm-10">@Model.CreatedAt.("dd/MM/yyyy HH:mm")</dd>
+    <dt class="col-sm-2">Hành động</dt>
+    <dd class="col-sm-10">@Model.ActionType</dd>
+    <dt class="col-sm-2">Mô tả</dt>
+    <dd class="col-sm-10">@Model.Description</dd>
+</dl>
+<a asp-action="Index">Quay lại</a>

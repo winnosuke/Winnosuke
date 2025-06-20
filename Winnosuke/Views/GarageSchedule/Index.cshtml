@@ -1,0 +1,35 @@
+﻿@model List<Winnosuke.Models.GarageSchedule>
+@{
+    ViewData["Title"] = "Lịch làm việc Garage";
+}
+
+<h2>Lịch hoạt động Garage</h2>
+
+<a asp-action="Create" class="btn btn-success mb-3">Thêm mới</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Garage</th>
+            <th>Thứ</th>
+            <th>Mở cửa</th>
+            <th>Đóng cửa</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Garage?.Name</td>
+                <td>@item.DayOfWeek</td>
+                <td>@item.OpenTime</td>
+                <td>@item.CloseTime</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ScheduleId">Sửa</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ScheduleId">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

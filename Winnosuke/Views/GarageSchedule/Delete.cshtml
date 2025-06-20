@@ -1,0 +1,16 @@
+﻿@model Winnosuke.Models.GarageSchedule
+@{
+    ViewData["Title"] = "Xóa lịch làm việc";
+}
+
+<h2>Xác nhận xóa</h2>
+
+<div class="alert alert-danger">
+    Bạn có chắc chắn muốn xóa lịch mở cửa vào <strong>@Model.DayOfWeek</strong> của Garage <strong>@Model.Garage?.Name</strong>?
+</div>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="ScheduleId" />
+    <button type="submit" class="btn btn-danger">Xóa</button>
+    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+</form>

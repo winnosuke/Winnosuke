@@ -1,0 +1,16 @@
+﻿@model Winnosuke.Models.TechnicalReport
+@{
+    ViewData["Title"] = "Chi tiết báo cáo";
+}
+
+<h2>Chi tiết báo cáo kỹ thuật</h2>
+
+<table class="table">
+    <tr><th>Lịch hẹn</th><td>@Model.AppointmentId</td></tr>
+    <tr><th>Tình trạng xe</th><td>@Model.VehicleStatus</td></tr>
+    <tr><th>Các mục đã thực hiện</th><td>@Model.PerformedItems</td></tr>
+    <tr><th>Khuyến nghị</th><td>@Model.Recommendations</td></tr>
+    <tr><th>Ngày tạo</th><td>@Model.CreatedAt.("dd/MM/yyyy HH:mm")</td></tr>
+</table>
+
+<a asp-action="@(User.IsInRole("Customer") ? "MyVehicleReports" : "MyReports")" class="btn btn-secondary">Quay lại</a>

@@ -1,0 +1,32 @@
+﻿@model List<Winnosuke.Models.Service>
+@{
+    ViewData["Title"] = "Quản lý dịch vụ";
+}
+
+<h2>Dịch vụ - Quản trị</h2>
+<a asp-action="Create" class="btn btn-success mb-3">Thêm dịch vụ</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Tên dịch vụ</th>
+            <th>Giá</th>
+            <th>Ảnh</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ServiceName</td>
+                <td>@item.Price.("N0") ₫</td>
+                <td><img src="~/@item.image_url" width="100" /></td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ServiceId">Sửa</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ServiceId">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

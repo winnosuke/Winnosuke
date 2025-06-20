@@ -1,0 +1,13 @@
+﻿@model Winnosuke.Models.User
+<h2>Xác nhận xoá người dùng</h2>
+<dl class="row">
+    <dt class="col-sm-2">Username</dt>
+    <dd class="col-sm-10">@Model.Username</dd>
+    <dt class="col-sm-2">Email</dt>
+    <dd class="col-sm-10">@Model.Email</dd>
+</dl>
+<form asp-action="DeleteConfirmed">
+    <input type="hidden" asp-for="UserId" />
+    <button type="submit" class="btn btn-danger">Xoá</button>
+    <a asp-action="Index" class="btn btn-secondary">Huỷ</a>
+</form>

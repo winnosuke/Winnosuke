@@ -1,0 +1,22 @@
+﻿@model Winnosuke.Models.Garage
+<h2>Thêm Garage mới</h2>
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Address"></label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="OperatingArea"></label>
+        <input asp-for="OperatingArea" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Tạo mới</button>
+</form>
+<a asp-action="Index">Quay lại</a>

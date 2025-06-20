@@ -1,0 +1,38 @@
+﻿@model List<Winnosuke.Models.Vehicle>
+@{
+    ViewData["Title"] = "Phương tiện của tôi";
+}
+
+<h2>Phương tiện</h2>
+
+<a asp-action="Create" class="btn btn-success mb-3">Thêm phương tiện</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Hãng</th>
+            <th>Loại</th>
+            <th>Biển số</th>
+            <th>Năm</th>
+            <th>Ghi chú</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Make</td>
+                <td>@item.Model</td>
+                <td>@item.LicensePlate</td>
+                <td>@item.Year</td>
+                <td>@item.Notes</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.VehicleId">Chi tiết</a> |
+                    <a asp-action="Edit" asp-route-id="@item.VehicleId">Sửa</a> |
+                    <a asp-action="Delete" asp-route-id="@item.VehicleId">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

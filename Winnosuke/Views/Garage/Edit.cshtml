@@ -1,0 +1,24 @@
+﻿@model Winnosuke.Models.Garage
+<h2>Chỉnh sửa Garage</h2>
+<form asp-action="Edit">
+    <input type="hidden" asp-for="GarageId" />
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Address"></label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="OperatingArea"></label>
+        <input asp-for="OperatingArea" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+</form>
+<a asp-action="Index">Quay lại</a>
+

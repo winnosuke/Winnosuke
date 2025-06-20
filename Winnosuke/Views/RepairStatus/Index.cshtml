@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Winnosuke.Models.RepairStatus>
+<h2>Tiến độ sửa chữa</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Lịch hẹn</th>
+            <th>Bước xử lý</th>
+            <th>Ghi chú</th>
+            <th>Thời gian</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var status in Model)
+        {
+            <tr>
+                <td>@status.AppointmentId</td>
+                <td>@status.StatusStep</td>
+                <td>@status.Notes</td>
+                <td>@status.CreatedAt.("dd/MM/yyyy HH:mm")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@status.StatusId">Sửa</a> |
+                    <a asp-action="Delete" asp-route-id="@status.StatusId">Xoá</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="Create" class="btn btn-primary">Thêm trạng thái</a>
+

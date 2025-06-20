@@ -1,0 +1,54 @@
+﻿@model Winnosuke.ViewModels.DashboardViewModel
+@{
+    ViewData["Title"] = "Bảng điều khiển";
+}
+
+<h2>📊 Bảng điều khiển</h2>
+
+<div class="row text-center">
+    <div class="col-md-3">
+        <div class="card bg-light border-primary p-3 mb-3">
+            <h4>👥 Người dùng</h4>
+            <p class="fs-3">@Model.TotalUsers</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-light border-success p-3 mb-3">
+            <h4>📅 Lịch hẹn</h4>
+            <p class="fs-3">@Model.TotalAppointments</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-light border-warning p-3 mb-3">
+            <h4>💰 Doanh thu</h4>
+            <p class="fs-3">@Model.TotalRevenue.ToString("N0") ₫</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-light border-dark p-3 mb-3">
+            <h4>🛠️ Báo cáo kỹ thuật</h4>
+            <p class="fs-3">@Model.TotalReports</p>
+        </div>
+    </div>
+</div>
+
+<h4 class="mt-4">🌟 Top Garage được đánh giá cao nhất</h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Garage</th>
+            <th>⭐ Điểm trung bình</th>
+            <th>📋 Số lượt đánh giá</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var g in Model.TopRatedGarages)
+        {
+            <tr>
+                <td>@g.GarageName</td>
+                <td>@g.AverageRating.ToString("0.0")</td>
+                <td>@g.ReviewCount</td>
+            </tr>
+        }
+    </tbody>
+</table>

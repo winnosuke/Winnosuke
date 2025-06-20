@@ -1,0 +1,13 @@
+﻿@model Winnosuke.Models.RepairStatus
+<h2>Xoá trạng thái</h2>
+<dl class="row">
+    <dt class="col-sm-2">Bước xử lý</dt>
+    <dd class="col-sm-10">@Model.StatusStep</dd>
+    <dt class="col-sm-2">Ghi chú</dt>
+    <dd class="col-sm-10">@Model.Notes</dd>
+</dl>
+<form asp-action="DeleteConfirmed">
+    <input type="hidden" asp-for="StatusId" />
+    <button type="submit" class="btn btn-danger">Xoá</button>
+    <a asp-action="Index" class="btn btn-secondary">Huỷ</a>
+</form>

@@ -1,0 +1,18 @@
+﻿@model Winnosuke.Models.Appointment
+@{
+    ViewData["Title"] = "Chi tiết lịch hẹn";
+}
+
+<h2>Chi tiết lịch hẹn</h2>
+
+<table class="table">
+    <tr><th>Khách hàng</th><td>@Model.User?.FullName</td></tr>
+    <tr><th>Phương tiện</th><td>@Model.Vehicle?.LicensePlate</td></tr>
+    <tr><th>Dịch vụ</th><td>@Model.Service?.ServiceName</td></tr>
+    <tr><th>Thời gian</th><td>@Model.AppointmentTime.("dd/MM/yyyy HH:mm")</td></tr>
+    <tr><th>Trạng thái</th><td>@Model.Status</td></tr>
+    <tr><th>Ghi chú</th><td>@Model.Notes</td></tr>
+</table>
+
+<a asp-action="Edit" asp-route-id="@Model.AppointmentId" class="btn btn-primary">Sửa</a>
+<a asp-action="Index" class="btn btn-secondary">Quay lại</a>

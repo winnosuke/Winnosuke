@@ -1,0 +1,36 @@
+﻿@model List<Winnosuke.Models.TechnicalReport>
+@{
+    ViewData["Title"] = "Báo cáo của tôi";
+}
+
+<h2>Báo cáo kỹ thuật đã viết</h2>
+
+<a asp-action="Create" class="btn btn-success mb-3">Thêm báo cáo</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Lịch hẹn</th>
+            <th>Tình trạng xe</th>
+            <th>Đã thực hiện</th>
+            <th>Đề xuất</th>
+            <th>Ngày</th>
+            <th>Xem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Appointment?.AppointmentId</td>
+                <td>@item.VehicleStatus</td>
+                <td>@item.PerformedItems</td>
+                <td>@item.Recommendations</td>
+                <td>@item.CreatedAt.("dd/MM/yyyy")</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.ReportId">Xem</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

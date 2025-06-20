@@ -1,0 +1,16 @@
+﻿@model Winnosuke.Models.Review
+@{
+    ViewData["Title"] = "Xóa đánh giá";
+}
+
+<h2>Xác nhận xóa đánh giá</h2>
+
+<div class="alert alert-danger">
+    Bạn có chắc chắn muốn xóa đánh giá "<strong>@Model.Comment</strong>" với <strong>@Model.Rating sao</strong>?
+</div>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="ReviewId" />
+    <button type="submit" class="btn btn-danger">Xóa</button>
+    <a asp-action="MyReviews" class="btn btn-secondary">Hủy</a>
+</form>

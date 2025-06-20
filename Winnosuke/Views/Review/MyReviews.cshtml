@@ -1,0 +1,34 @@
+﻿@model List<Winnosuke.Models.Review>
+@{
+    ViewData["Title"] = "Đánh giá của tôi";
+}
+
+<h2>Đánh giá của tôi</h2>
+
+<a asp-action="Create" class="btn btn-success mb-3">Viết đánh giá mới</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Garage</th>
+            <th>Sao</th>
+            <th>Bình luận</th>
+            <th>Ngày</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Garage?.Name</td>
+                <td>@item.Rating</td>
+                <td>@item.Comment</td>
+                <td>@item.CreatedAt.("dd/MM/yyyy")</td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.ReviewId">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

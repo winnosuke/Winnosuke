@@ -1,0 +1,44 @@
+﻿@model Winnosuke.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Đăng nhập";
+}
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="card shadow-lg rounded-4 p-4" style="width: 100%; max-width: 400px;">
+        <h2 class="text-center mb-4 text-primary">Đăng nhập</h2>
+
+        <form asp-controller="AccountLogin" asp-action="Login" method="post">
+            <div class="mb-3">
+                <label asp-for="Username" class="form-label fw-bold">Tên đăng nhập</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                    <input asp-for="Username" class="form-control" placeholder="Tên đăng nhập" />
+                </div>
+                <span asp-validation-for="Username" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label fw-bold">Mật khẩu</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+                    <input asp-for="Password" class="form-control" placeholder="Mật khẩu" type="password" />
+                </div>
+                <span asp-validation-for="Password" class="text-danger small"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 rounded-pill">Đăng nhập</button>
+        </form>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger mt-3 mb-0" role="alert">
+                @ViewBag.Error
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

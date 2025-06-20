@@ -1,0 +1,32 @@
+﻿@model List<Winnosuke.Models.Notification>
+@{
+    ViewData["Title"] = "Thông báo";
+}
+
+<h2>Thông báo</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Tiêu đề</th>
+            <th>Nội dung</th>
+            <th>Ngày</th>
+            <th>Trạng thái</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="@(item.IsRead.GetValueOrDefault() ? "" : "table-warning")">
+                <td>@item.Title</td>
+                <td>@item.Message</td>
+                <td>@item.CreatedAt.("dd/MM/yyyy HH:mm")</td>
+                <td>@(item.IsRead.GetValueOrDefault() ? "Đã đọc" : "Chưa đọc")</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.NotificationId">Xem</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

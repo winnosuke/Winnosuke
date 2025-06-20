@@ -1,0 +1,16 @@
+﻿@model Winnosuke.Models.Appointment
+@{
+    ViewData["Title"] = "Xóa lịch hẹn";
+}
+
+<h2>Xác nhận xóa lịch hẹn</h2>
+
+<div class="alert alert-warning">
+    Bạn có chắc chắn muốn xóa lịch hẹn của khách <strong>@Model.User?.FullName</strong> vào lúc <strong>@Model.AppointmentTime.("dd/MM/yyyy HH:mm")</strong> không?
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="AppointmentId" />
+    <button type="submit" class="btn btn-danger">Xóa</button>
+    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+</form>

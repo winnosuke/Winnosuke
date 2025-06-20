@@ -1,0 +1,31 @@
+﻿@model Winnosuke.Models.Vehicle
+@{
+    ViewData["Title"] = "Thêm phương tiện";
+}
+
+<h2>Thêm phương tiện</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Make"></label>
+        <input asp-for="Make" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Model"></label>
+        <input asp-for="Model" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="LicensePlate"></label>
+        <input asp-for="LicensePlate" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Year"></label>
+        <input asp-for="Year" class="form-control" type="number" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Notes"></label>
+        <textarea asp-for="Notes" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Lưu</button>
+    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+</form>

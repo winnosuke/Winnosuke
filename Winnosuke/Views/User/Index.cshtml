@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Winnosuke.Models.User>
+
+<h2>Danh sách người dùng</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên đăng nhập</th>
+            <th>Email</th>
+            <th>Vai trò</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Username</td>
+                <td>@user.Email</td>
+                <td>@user.Role</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@user.UserId">Chi tiết</a> |
+                    <a asp-action="Edit" asp-route-id="@user.UserId">Sửa</a> |
+                    <a asp-action="Delete" asp-route-id="@user.UserId">Xoá</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="Create" class="btn btn-primary">Thêm người dùng</a>
+
